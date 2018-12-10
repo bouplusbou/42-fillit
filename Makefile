@@ -6,7 +6,7 @@
 #    By: bboucher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 14:46:57 by bboucher          #+#    #+#              #
-#    Updated: 2018/12/10 14:52:20 by bclaudio         ###   ########.fr        #
+#    Updated: 2018/12/10 15:48:34 by bclaudio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ NAME = fillit
 IDIR = -Iincludes/ -Ilibft/includes
 
 SRC =  main.c \
-	   map.c
+	   map.c \
+	   placement.c
 
 OBJ = $(SRC:.c=.o)
 
