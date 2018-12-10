@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 15:40:12 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/10 15:57:51 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,16 @@ int	main(int c, char **v)
 		ft_putendl("error during opening");
 		return (0);
 	}
-	if (!parser(fd, block))
+	if (!reader(fd, block))
 	{
 		ft_putendl("error during parsing");
 		return (0);
 	}
 	TEST_read_tab(block);
+	if (check_error(block))
+	{
+		ft_putendl("error during check_error");
+		return (0);
+	}
 	return (c);
 }
