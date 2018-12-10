@@ -24,4 +24,11 @@ char	**generate_map(int y, int x);
 void	print_map(char **map);
 void	destroy_map(char **map);
 
+typedef struct	s_shape
+{
+	char	id;
+	int		placed;
+	char	**pattern;
+}				t_shape;
+
 #endif
