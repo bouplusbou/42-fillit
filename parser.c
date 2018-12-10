@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 15:24:35 by bboucher         ###   ########.fr       */
+/*   Created: 2018/12/10 15:20:45 by bboucher          #+#    #+#             */
+/*   Updated: 2018/12/10 15:40:14 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "fillit.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include "libft/includes/libft.h"
-# include <stdlib.h>
-
-char	**parser(int fd, char **block);
-char	**generate_map(int y, int x);
-void	print_map(char **map);
-void	destroy_map(char **map);
-
-typedef struct	s_shape
+char	**parser(int fd, char **block)
 {
-	char	id;
-	int		placed;
-	char	**pattern;
-}				t_shape;
+	int			rd;
+	int			i;
+	char		*tmp;
 
-#endif
+	rd = 1;
+	i = 0;
+	while (rd != 0)
+	{
+		if (!(block[i] = ft_strnew(20))
+				|| (rd = read(fd, block[i], 20)) < 0
+				|| !(tmp = ft_strnew(1))
+				|| (rd = read(fd, tmp, 1)) < 0)
+			return (NULL);
+		ft_strdel(&tmp);
+		i++;
+	}
+	block[i] = NULL;
+	return (block);	
+}
