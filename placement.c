@@ -6,7 +6,7 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:13:21 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/10 17:45:51 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/10 17:52:15 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		clear_placement(char **map, char id)
 		}
 		y++;
 	}
+	printf("Placement not possible.\n");
 	return (0);
 }
 
@@ -57,5 +58,6 @@ int		place(char **map, t_shape *shape, int y, int x)
 		}
 		sy++;
 	}
+	printf("Shape placed in map.\n");
 	return (0);
 }

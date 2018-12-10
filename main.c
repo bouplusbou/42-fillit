@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 17:45:53 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/10 17:52:22 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	main(int c, char **v)
 	print_struct(shape);
 	map = generate_map(ft_atoi(v[2]), ft_atoi(v[3]));
 	print_map(map);
-	ft_putendl(">>>>>>>>>>>>>>>>");
 	place(map, shape, ft_atoi(v[4]), ft_atoi(v[5]));
 	print_map(map);
 	return (c);
