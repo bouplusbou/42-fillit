@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 17:52:20 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/11 23:49:09 by alastri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 typedef struct	s_shape
 {
 	char	id;
-	int		placed;
 	char	**pattern;
 }				t_shape;
 
@@ -33,5 +32,8 @@ void	print_map(char **map);
 void	destroy_map(char **map);
 int		place(char **map, t_shape *shape, int y, int x);
 void	print_struct(t_shape *shape);
+char	**fillit(t_shape **shapes, int map_size);
+int	fill_map(char **map, t_shape **shape, int i, int map_size);
+int	clear_placement(char **map, char id);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:59:04 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/10 17:41:36 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/12 00:18:50 by alastri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	**generate_map(int y, int x)
 
 void	print_map(char **map)
 {
-	ft_putendl("MAP:");
 	while (*map)
 		ft_putendl(*map++);
 }
