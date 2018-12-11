@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 15:51:46 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/11 08:30:19 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 
 char	**reader(int fd, char **block);
-char	**check_error(char **block);
+int		check_error(char **block);
 char	**generate_map(int y, int x);
 void	print_map(char **map);
 void	destroy_map(char **map);

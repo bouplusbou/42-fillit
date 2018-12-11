@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 15:57:51 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/11 09:15:47 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ int	main(int c, char **v)
 		ft_putendl("Usage: ./fillit file");
 	if ((fd = open(v[1], O_RDONLY)) == -1)
 	{
-		ft_putendl("error during opening");
+		ft_putendl("Error during opening");
 		return (0);
 	}
 	if (!reader(fd, block))
 	{
-		ft_putendl("error during parsing");
+		ft_putendl("Error during parsing");
 		return (0);
 	}
 	TEST_read_tab(block);
-	if (check_error(block))
+	if (!check_error(block))
 	{
-		ft_putendl("error during check_error");
+		ft_putendl("Error during check_error");
 		return (0);
 	}
 	return (c);

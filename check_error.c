@@ -6,13 +6,43 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:49:16 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 15:57:49 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/11 09:15:45 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 #include <stdio.h>
+
+static int	check_touch(char *str)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '#')
+		{
+			if (i < 18 && str[i + 1] == '#')
+				count++;
+			if (i > 0 && str[i - 1] == '#')
+				count++;
+			if (i > 4 && str[i - 5] == '#')
+				count++;
+			if (i < 15 && str[i + 5] == '#')
+				count++;
+		}
+		i++;
+	}
+	if (count != 6 && count != 8)
+	{
+		ft_putendl("Wrong shape");
+		return (0);
+	}
+	return (1);
+}
 
 static int	check_block(char *str)
 {
@@ -21,10 +51,9 @@ static int	check_block(char *str)
 
 	letter = 0;
 	piece = 0;
-	ft_putstr(str);
 	while (*str)
 	{
-		if (*str != '#' && *str != '.' && *str != '\n')// Check validité des char (3)
+		if (*str != '#' && *str != '.' && *str != '\n') // Check validité des char (3)
 		{
 			ft_putendl("Wrong char in block.");
 			return (0);
@@ -40,7 +69,7 @@ static int	check_block(char *str)
 		}
 		str++;
 	}
-	if (letter != 20 || piece != 4)// Check du nombre total de char (6), de ligne (2), et de '#' (4)
+	if (letter != 20 || piece != 4) // Check du nombre total de char (6), de ligne (2), et de '#' (4)
 	{
 		ft_putendl("Wrong number of letters/pieces");
 		printf("Letter: %i. Piece: %i\n", letter, piece);
@@ -57,14 +86,11 @@ int	check_error(char **block)
 	while (block[i])
 	{
 		if (!check_block(block[i]))
-		{
-			printf("Error in bloc %i.\n", i);
 			return (0);
-		}
+		if (!check_touch(block[i]))
+			return (0);
 		printf("Bloc %i is valid.\n", i);
 		i++;
 	}
-	if (!i)
-		return (0);
 	return (i);
 }
