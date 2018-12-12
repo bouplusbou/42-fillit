@@ -6,7 +6,7 @@
 #    By: bboucher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 14:46:57 by bboucher          #+#    #+#              #
-#    Updated: 2018/12/11 19:36:18 by alastri          ###   ########.fr        #
+#    Updated: 2018/12/11 12:48:12 by bboucher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,10 @@ SRC =  main.c \
 	   map.c \
 	   placement.c \
 	   backtracking.c
+	   reader.c \
+	   check_error.c \
+	   parser.c \
+	   map.c
 
 OBJ = $(SRC:.c=.o)
 

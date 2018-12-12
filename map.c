@@ -29,7 +29,7 @@ char	**generate_map(int y, int x)
 	return (map);
 }
 
-void	print_map(char **map)
+void		print_map(char **map)
 {
 	while (*map)
 		ft_putendl(*map++);

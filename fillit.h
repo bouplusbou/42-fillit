@@ -24,7 +24,7 @@
 typedef struct	s_shape
 {
 	char	id;
-	char	**pattern;
+	char	pattern[5][5];
 }				t_shape;
 
 char	**generate_map(int y, int x);
@@ -35,5 +35,8 @@ void	print_struct(t_shape *shape);
 char	**fillit(t_shape **shapes, int map_size);
 int	fill_map(char **map, t_shape **shape, int i, int map_size);
 int	clear_placement(char **map, char id);
+char	**reader(int fd, char **block);
+int		check_error(char **block);
+int		parser(char **block, t_shape **shape);
 
 #endif
