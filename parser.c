@@ -6,14 +6,14 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:30:48 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 08:33:03 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 14:46:16 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-int		x_min(char *block)
+static int			x_min(char *block)
 {
 	int	i;
 	int	x_min;
@@ -35,7 +35,7 @@ int		x_min(char *block)
 	return (x_min);
 }
 
-int		y_min(char *block)
+static int			y_min(char *block)
 {
 	int	i;
 	int	y_min;
@@ -53,7 +53,7 @@ int		y_min(char *block)
 	return (-1);
 }
 
-void	fill_pattern(t_shape *new_shape)
+static void		fill_pattern(t_shape *new_shape)
 {
 	int	y;
 	int x;
@@ -74,15 +74,17 @@ void	fill_pattern(t_shape *new_shape)
 	new_shape->pattern[4][0] = '\0';
 }
 
-t_shape	ft_new_shape(int id, char *block)
+static t_shape	*ft_new_shape(int id, char *block)
 {
 	int		i;
 	int		y;
 	int		x;
-	t_shape	new_shape;
+	t_shape	*new_shape;
 
-	new_shape.id = 'A' + id;
-	fill_pattern(&new_shape);
+	if (!(new_shape = (t_shape*)malloc(sizeof(t_shape))))
+		return (NULL);
+	new_shape->id = 'A' + id;
+	fill_pattern(new_shape);
 	i = x_min(block) + y_min(block) * 5;
 	y = 0;
 	x = 0;
@@ -94,14 +96,14 @@ t_shape	ft_new_shape(int id, char *block)
 			y++;
 			i += x_min(block) + 1;
 		}
-		new_shape.pattern[y][x] = block[i];
+		new_shape->pattern[y][x] = block[i];
 		x++;
 		i++;
 	}
 	return (new_shape);
 }
 
-int		parser(char **block, t_shape *shape)
+int				parser(char **block, t_shape **shape)
 {
 	int		i;
 	int		j;

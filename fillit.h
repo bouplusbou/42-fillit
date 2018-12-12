@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/11 12:51:01 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 14:40:13 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_shape
 
 char	**reader(int fd, char **block);
 int		check_error(char **block);
-int		parser(char **block, t_shape *shape);
+int		parser(char **block, t_shape **shape);
 char	**generate_map(int y, int x);
 void	print_map(char **map);
 void	destroy_map(char **map);
