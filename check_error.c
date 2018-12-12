@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:49:16 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/11 09:15:45 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 14:32:21 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	check_block(char *str)
 	return (1);
 }
 
-int	check_error(char **block)
+int			check_error(char **block)
 {
 	int i;
 

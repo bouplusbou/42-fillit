@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:44:51 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/10 15:46:14 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 14:32:59 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ char	**reader(int fd, char **block)
 		if (!(block[i] = ft_strnew(20))
 				|| (rd = read(fd, block[i], 20)) < 0
 				|| !(tmp = ft_strnew(1))
-				|| (rd = read(fd, tmp, 1)) < 0)
+				|| (rd = read(fd, tmp, 1)) < 0
+				|| (i > 25))
 			return (NULL);
 		ft_strdel(&tmp);
 		i++;
