@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/11 15:26:34 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 11:40:24 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	TEST_read_struct(t_shape *shape)
 	{
 		printf("shape[%i].id: %c\n", i, shape[i].id);
 		y = 0;
-		while (y < 4) // je ne NULL termine pas shape[i].pattern[y], c'est ok pour toi ?
+		while (shape[i].pattern[y][0] != '\0')
 		{
 			x = 0;
 			while (shape[i].pattern[y][x])
@@ -66,7 +66,7 @@ int	main(int c, char **v)
 	}
 	if (!reader(fd, block))
 	{
-		ft_putendl("Error during parsing");
+		ft_putendl("Error during reading");
 		return (0);
 	}
 	TEST_read_tab(block);

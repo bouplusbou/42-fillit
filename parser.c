@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:30:48 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/11 15:26:30 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 08:33:03 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	fill_pattern(t_shape *new_shape)
 		new_shape->pattern[y][x] = '\0';
 		y++;
 	}
+	new_shape->pattern[4][0] = '\0';
 }
 
 t_shape	ft_new_shape(int id, char *block)
