@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 14:27:05 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/12 15:44:01 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_struct(t_shape *shape)
 	i = 0;
 	printf("Structure %c:\n", shape->id);
 	printf("Pattern:\n");
-	while (shape->pattern[i])
+	while (shape->pattern[i][0])
 		printf("%s\n", shape->pattern[i++]);
 }
 
@@ -57,23 +57,27 @@ int	main(int c, char **v)
 		ft_putendl("Error during reading");
 		return (0);
 	}
-	TEST_read_tab(block);
+	printf("Reader success\n");
 	if (!(nbr_blocks = check_error(block)))
 	{
 		ft_putendl("Error during check_error");
 		return (0);
 	}
+	printf("Nbr block = %i\n", nbr_blocks);
 	if (!(shape = (t_shape**)malloc(sizeof(t_shape*) * (nbr_blocks + 1))))
 	{
 		ft_putendl("Error during mmaloc shape array");
 		return (0);
 	}
-	shape[nbr_blocks] = 0;
+	shape[nbr_blocks] = NULL;
 	if (!parser(block, shape))
 	{
 		ft_putendl("Error during parsing");
 		return (0);
 	}
-	print_map(fillit(array, ft_sqrt(fd * 4)));
+	fd = 0;
+	while (shape[fd])
+		print_struct(shape[fd++]);
+	print_map(fillit(shape, ft_sqrt(nbr_blocks * 4)));
 	return (c);
 }

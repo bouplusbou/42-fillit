@@ -6,7 +6,7 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:13:21 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/12 12:52:43 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/12 15:27:54 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		place(char **map, t_shape *shape, int y, int x)
 
 	sy = 0;
 	sx = 0;
-	while (shape->pattern[sy])
+	while (shape->pattern[sy][0])
 	{
 		sx = 0;
 		while (shape->pattern[sy][sx])
