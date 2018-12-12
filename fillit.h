@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 15:27:21 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:00:51 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int		clear_placement(char **map, char id);
 char	**reader(int fd, char **block);
 int		check_error(char **block);
 int		parser(char **block, t_shape **shape);
+void	del_struct(t_shape **shape);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 15:44:01 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:14:02 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int	main(int c, char **v)
 	while (shape[fd])
 		print_struct(shape[fd++]);
 	print_map(fillit(shape, ft_sqrt(nbr_blocks * 4)));
+	del_struct(shape);
 	return (c);
 }
