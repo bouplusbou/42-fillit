@@ -6,49 +6,36 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 14:48:43 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 14:27:05 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-#include <stdio.h>
-
-void	TEST_read_struct(t_shape **shape)
+void	print_struct(t_shape *shape)
 {
-	int	i;
-	int	y;
-	int	x;
+	int i;
 
 	i = 0;
-	while (shape[i])
-	{
-		printf("shape[%i].id: %c\n", i, shape[i]->id);
-		y = 0;
-		while (shape[i]->pattern[y][0] != '\0')
-		{
-			x = 0;
-			while (shape[i]->pattern[y][x])
-			{	
-				printf("shape[%i].pattern[%i][%i]: %c\n", i, y, x, shape[i]->pattern[y][x]);
-				x++;
-			}
-			y++;
-		}
-		i++;
-	}
+	printf("Structure %c:\n", shape->id);
+	printf("Pattern:\n");
+	while (shape->pattern[i])
+		printf("%s\n", shape->pattern[i++]);
 }
 
-void	TEST_read_tab(char **tab)
+int		ft_sqrt(int nb)
 {
-	int	i;
+	int i;
+	int result;
 
-	i = 0;
-	while (tab[i])
+	i = 1;
+	result = 0;
+	while (result <= nb)
 	{
-		printf("tab[%i]:\n%s\n", i, tab[i]);
+		result = i * i;
 		i++;
 	}
+	return (i - 1);
 }
 
 int	main(int c, char **v)
@@ -87,6 +74,6 @@ int	main(int c, char **v)
 		ft_putendl("Error during parsing");
 		return (0);
 	}
-	TEST_read_struct(shape);
+	print_map(fillit(array, ft_sqrt(fd * 4)));
 	return (c);
 }

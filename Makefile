@@ -20,6 +20,9 @@ NAME = fillit
 IDIR = -Iincludes/ -Ilibft/includes
 
 SRC =  main.c \
+	   map.c \
+	   placement.c \
+	   backtracking.c
 	   reader.c \
 	   check_error.c \
 	   parser.c \

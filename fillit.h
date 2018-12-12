@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 14:40:13 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 14:33:26 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include "libft/includes/libft.h"
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct	s_shape
 {
@@ -26,11 +27,16 @@ typedef struct	s_shape
 	char	pattern[5][5];
 }				t_shape;
 
+char	**generate_map(int y, int x);
+void	print_map(char **map);
+void	delete_map(char **map);
+int		place(char **map, t_shape *shape, int y, int x);
+void	print_struct(t_shape *shape);
+char	**fillit(t_shape **shapes, int map_size);
+int	fill_map(char **map, t_shape **shape, int i, int map_size);
+int	clear_placement(char **map, char id);
 char	**reader(int fd, char **block);
 int		check_error(char **block);
 int		parser(char **block, t_shape **shape);
-char	**generate_map(int y, int x);
-void	print_map(char **map);
-void	destroy_map(char **map);
 
 #endif
