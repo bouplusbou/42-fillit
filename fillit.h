@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 17:00:51 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:12:48 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_map(char **map);
 void	delete_map(char **map);
 int		place(char **map, t_shape *shape, int y, int x);
 void	print_struct(t_shape *shape);
-char	**fillit(t_shape **shapes, int map_size);
+int		fillit(t_shape **shapes, int map_size);
 int		clear_placement(char **map, char id);
 char	**reader(int fd, char **block);
 int		check_error(char **block);

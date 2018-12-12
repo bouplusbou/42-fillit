@@ -6,7 +6,7 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 12:47:17 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/12 15:12:26 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:12:04 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	fill_map(char **map, t_shape **shapes, int i, int map_size)
 	return (0);
 }
 
-char	**fillit(t_shape **shapes, int map_size)
+int		fillit(t_shape **shapes, int map_size)
 {
 	char **map;
 	
@@ -57,6 +57,8 @@ char	**fillit(t_shape **shapes, int map_size)
 		printf("Map too small. Generating new map\n");
 		map = generate_map(map_size, map_size);
 	}
+	print_map(map);
+	delete_map(map);
 	printf("Solution found.\n");
-	return (map);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:59:04 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/12 15:08:17 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:10:30 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ void	delete_map(char **map)
 	i = 0;
 	while (map[i])
 		ft_strdel(&map[i++]);
+	free(map);
 }
