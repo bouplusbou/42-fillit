@@ -6,7 +6,7 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:59:04 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/12 00:18:50 by alastri          ###   ########.fr       */
+/*   Updated: 2018/12/12 14:33:15 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	print_map(char **map)
 		ft_putendl(*map++);
 }
 
-void	destroy_map(char **map)
+void	delete_map(char **map)
 {
 	int i;
 

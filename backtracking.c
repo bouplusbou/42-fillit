@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   backtracking.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/12 12:47:17 by bclaudio          #+#    #+#             */
+/*   Updated: 2018/12/12 14:33:50 by bclaudio         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-void	move_vector(int *y, int *x, int map_size)
+static void		move_vector(int *y, int *x, int map_size)
 {
 	if (*x == map_size - 1)
 	{
@@ -11,7 +23,7 @@ void	move_vector(int *y, int *x, int map_size)
 		*x += 1;
 }
 
-int	fill_map(char **map, t_shape **shapes, int i, int map_size)
+static int	fill_map(char **map, t_shape **shapes, int i, int map_size)
 {
 	int y;
 	int x;
@@ -41,6 +53,8 @@ char	**fillit(t_shape **shapes, int map_size)
 	while (!fill_map(map, shapes, 0, map_size))
 	{
 		map_size++;
+		delete_map(map);
+		printf("Map too small. Generating new map\n");
 		map = generate_map(map_size, map_size);
 	}
 	printf("Solution found.\n");

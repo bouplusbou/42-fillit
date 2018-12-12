@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/11 23:49:09 by alastri          ###   ########.fr       */
+/*   Updated: 2018/12/12 14:33:26 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_shape
 
 char	**generate_map(int y, int x);
 void	print_map(char **map);
-void	destroy_map(char **map);
+void	delete_map(char **map);
 int		place(char **map, t_shape *shape, int y, int x);
 void	print_struct(t_shape *shape);
 char	**fillit(t_shape **shapes, int map_size);
