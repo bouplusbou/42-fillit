@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 18:15:03 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:17:09 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,6 @@ void	print_struct(t_shape *shape)
 	printf("Pattern:\n");
 	while (shape->pattern[i][0])
 		printf("%s\n", shape->pattern[i++]);
-}
-
-int		ft_sqrt(int nb)
-{
-	int i;
-	int result;
-
-	i = 1;
-	result = 0;
-	while (result <= nb)
-	{
-		result = i * i;
-		i++;
-	}
-	return (i - 1);
 }
 
 int	main(int c, char **v)
@@ -78,7 +63,7 @@ int	main(int c, char **v)
 	fd = 0;
 	while (shape[fd])
 		print_struct(shape[fd++]);
-	fillit(shape, ft_sqrt(nbr_blocks * 4));
+	fillit(shape, 2);
 	del_struct(shape);
 	return (c);
 }
