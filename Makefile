@@ -6,7 +6,7 @@
 #    By: bboucher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 14:46:57 by bboucher          #+#    #+#              #
-#    Updated: 2018/12/12 15:11:29 by bboucher         ###   ########.fr        #
+#    Updated: 2018/12/12 17:00:11 by bboucher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,12 @@ IDIR = -Iincludes/ -Ilibft/includes
 
 SRC =  main.c \
 	   map.c \
-	   placement.c \
-	   backtracking.c \
 	   reader.c \
 	   check_error.c \
-	   parser.c
+	   parser.c \
+	   backtracking.c \
+	   placement.c \
+	   del_struct.c
 
 OBJ = $(SRC:.c=.o)
 
