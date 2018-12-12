@@ -6,13 +6,12 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:13:21 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/12 15:27:54 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:48:27 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-// Clear the spaces that as been changed is the shape can't be placed
 int		clear_placement(char **map, char id)
 {
 	int y;
@@ -33,7 +32,6 @@ int		clear_placement(char **map, char id)
 	return (0);
 }
 
-// Check if shape can be placed in map at index y/x
 int		place(char **map, t_shape *shape, int y, int x)
 {
 	int sy;
@@ -48,10 +46,11 @@ int		place(char **map, t_shape *shape, int y, int x)
 		{
 			if (shape->pattern[sy][sx] == '#')
 			{
-				if (!map[y + sy] || !map[y + sy][x + sx] || map[y + sy][x + sx] != '.')
+				if (!map[y + sy] || !map[y + sy][x + sx]
+						|| map[y + sy][x + sx] != '.')
 					return (0);
 				else
-					map[y +sy][x + sx] = shape->id;	
+					map[y + sy][x + sx] = shape->id;
 			}
 			sx++;
 		}

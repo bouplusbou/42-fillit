@@ -6,14 +6,13 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:30:48 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 16:56:08 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:47:28 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
-static int			x_min(char *block)
+static int		x_min(char *block)
 {
 	int	i;
 	int	x_min;
@@ -35,7 +34,7 @@ static int			x_min(char *block)
 	return (x_min);
 }
 
-static int			y_min(char *block)
+static int		y_min(char *block)
 {
 	int	i;
 	int	y_min;
@@ -71,7 +70,7 @@ static void		fill_pattern(t_shape *new_shape)
 		new_shape->pattern[y][x] = '\0';
 		y++;
 	}
-	new_shape->pattern[4][0] = '\0';;
+	new_shape->pattern[4][0] = '\0';
 }
 
 static t_shape	*ft_new_shape(int id, char *block)

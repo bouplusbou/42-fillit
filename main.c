@@ -6,22 +6,11 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 18:17:09 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:45:16 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-void	print_struct(t_shape *shape)
-{
-	int i;
-
-	i = 0;
-	printf("Structure %c:\n", shape->id);
-	printf("Pattern:\n");
-	while (shape->pattern[i][0])
-		printf("%s\n", shape->pattern[i++]);
-}
 
 int	main(int c, char **v)
 {
@@ -30,40 +19,24 @@ int	main(int c, char **v)
 	char	*block[27];
 	t_shape	**shape;
 
-	if (c != 2)
-		ft_putendl("Usage: ./fillit file");
-	if ((fd = open(v[1], O_RDONLY)) == -1)
+	if (c == 2)
 	{
-		ft_putendl("Error during opening");
-		return (0);
+		if ((fd = open(v[1], O_RDONLY)) == -1
+				|| !reader(fd, block)
+				|| !(nbr_blocks = check_error(block)))
+		{
+			ft_putendl("error");
+			return (0);
+		}
+		if (!(shape = (t_shape**)malloc(sizeof(t_shape*) * (nbr_blocks + 1))))
+			return (0);
+		shape[nbr_blocks] = NULL;
+		if (!parser(block, shape))
+			return (0);
+		fillit(shape, 2);
+		del_struct(shape);
 	}
-	if (!reader(fd, block))
-	{
-		ft_putendl("Error during reading");
-		return (0);
-	}
-	printf("Reader success\n");
-	if (!(nbr_blocks = check_error(block)))
-	{
-		ft_putendl("Error during check_error");
-		return (0);
-	}
-	printf("Nbr block = %i\n", nbr_blocks);
-	if (!(shape = (t_shape**)malloc(sizeof(t_shape*) * (nbr_blocks + 1))))
-	{
-		ft_putendl("Error during mmaloc shape array");
-		return (0);
-	}
-	shape[nbr_blocks] = NULL;
-	if (!parser(block, shape))
-	{
-		ft_putendl("Error during parsing");
-		return (0);
-	}
-	fd = 0;
-	while (shape[fd])
-		print_struct(shape[fd++]);
-	fillit(shape, 2);
-	del_struct(shape);
+	else
+		ft_putendl("Usage: ./fillit <file>");
 	return (c);
 }

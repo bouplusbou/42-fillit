@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:44:51 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 14:32:59 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:48:50 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ char	**reader(int fd, char **block)
 		i++;
 	}
 	block[i] = NULL;
-	return (block);	
+	return (block);
 }

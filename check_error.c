@@ -6,13 +6,9 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:49:16 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 14:32:21 by bboucher         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:44:40 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "fillit.h"
-
-#include <stdio.h>
 
 static int	check_touch(char *str)
 {
@@ -37,10 +33,7 @@ static int	check_touch(char *str)
 		i++;
 	}
 	if (count != 6 && count != 8)
-	{
-		ft_putendl("Wrong shape");
 		return (0);
-	}
 	return (1);
 }
 
@@ -53,28 +46,18 @@ static int	check_block(char *str)
 	piece = 0;
 	while (*str)
 	{
-		if (*str != '#' && *str != '.' && *str != '\n') // Check validité des char (3)
-		{
-			ft_putendl("Wrong char in block.");
+		if (*str != '#' && *str != '.' && *str != '\n')
 			return (0);
-		}
 		else
 			letter++;
 		if (*str == '#')
 			piece++;
-		if (*str == '\n' && letter % 5 != 0) // Check des la taille des lignes (1) et des multi newline (5)
-		{
-			ft_putendl("Wrong size of line.");
+		if (*str == '\n' && letter % 5 != 0)
 			return (0);
-		}
 		str++;
 	}
-	if (letter != 20 || piece != 4) // Check du nombre total de char (6), de ligne (2), et de '#' (4)
-	{
-		ft_putendl("Wrong number of letters/pieces");
-		printf("Letter: %i. Piece: %i\n", letter, piece);
+	if (letter != 20 || piece != 4)
 		return (0);
-	}
 	return (1);
 }
 
@@ -89,7 +72,6 @@ int			check_error(char **block)
 			return (0);
 		if (!check_touch(block[i]))
 			return (0);
-		printf("Bloc %i is valid.\n", i);
 		i++;
 	}
 	return (i);

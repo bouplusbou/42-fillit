@@ -6,13 +6,13 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 12:47:17 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/12 18:12:04 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:44:22 by bclaudio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void		move_vector(int *y, int *x, int map_size)
+static void	move_vector(int *y, int *x, int map_size)
 {
 	if (*x == map_size - 1)
 	{
@@ -38,27 +38,25 @@ static int	fill_map(char **map, t_shape **shapes, int i, int map_size)
 		{
 			if (fill_map(map, shapes, i + 1, map_size))
 				return (1);
-		}	
+		}
 		clear_placement(map, shapes[i]->id);
 		move_vector(&y, &x, map_size);
 	}
 	return (0);
 }
 
-int		fillit(t_shape **shapes, int map_size)
+int			fillit(t_shape **shapes, int map_size)
 {
 	char **map;
-	
+
 	map = generate_map(map_size, map_size);
 	while (!fill_map(map, shapes, 0, map_size))
 	{
 		map_size++;
 		delete_map(map);
-		printf("Map too small. Generating new map\n");
 		map = generate_map(map_size, map_size);
 	}
 	print_map(map);
 	delete_map(map);
-	printf("Solution found.\n");
 	return (0);
 }
