@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 12:30:48 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 18:47:28 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/13 12:06:59 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,8 @@ static void		fill_pattern(t_shape *new_shape)
 	{
 		x = 0;
 		while (x < 4)
-		{
-			new_shape->pattern[y][x] = '.';
-			x++;
-		}
-		new_shape->pattern[y][x] = '\0';
-		y++;
+			new_shape->pattern[y][x++] = '.';
+		new_shape->pattern[y++][x] = '\0';
 	}
 	new_shape->pattern[4][0] = '\0';
 }
@@ -95,9 +91,7 @@ static t_shape	*ft_new_shape(int id, char *block)
 			y++;
 			i += x_min(block) + 1;
 		}
-		new_shape->pattern[y][x] = block[i];
-		x++;
-		i++;
+		new_shape->pattern[y][x++] = block[i++];
 	}
 	return (new_shape);
 }
@@ -111,9 +105,9 @@ int				parser(char **block, t_shape **shape)
 	j = 0;
 	while (block[i])
 	{
-		shape[j] = ft_new_shape(i, block[i]);
-		j++;
+		shape[j++] = ft_new_shape(i, block[i]);
 		i++;
 	}
+	shape[j] = NULL;
 	return (1);
 }

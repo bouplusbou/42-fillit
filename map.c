@@ -6,7 +6,7 @@
 /*   By: bclaudio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:59:04 by bclaudio          #+#    #+#             */
-/*   Updated: 2018/12/12 18:45:51 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/13 12:04:59 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ char	**generate_map(int y, int x)
 	{
 		if (!(map[y] = ft_strnew(x)))
 			return (NULL);
-		ft_memset(map[y], 46, x);
-		y--;
+		ft_memset(map[y--], 46, x);
 	}
 	return (map);
 }

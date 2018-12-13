@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:44:41 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 19:14:54 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/13 12:04:46 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <sys/uio.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include "libft/includes/libft.h"
 # include <stdlib.h>
+# include "libft/includes/libft.h"
 
 typedef struct	s_shape
 {

@@ -6,11 +6,11 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 15:49:16 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 18:44:40 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/13 11:56:32 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	check_touch(char *str)
+static int	check_touch(const char *str)
 {
 	int	count;
 	int	i;

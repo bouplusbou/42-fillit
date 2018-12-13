@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:42:58 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 18:45:16 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/13 12:00:22 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int c, char **v)
 		}
 		if (!(shape = (t_shape**)malloc(sizeof(t_shape*) * (nbr_blocks + 1))))
 			return (0);
-		shape[nbr_blocks] = NULL;
 		if (!parser(block, shape))
 			return (0);
 		fillit(shape, 2);

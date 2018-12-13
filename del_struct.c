@@ -6,7 +6,7 @@
 /*   By: bboucher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:57:20 by bboucher          #+#    #+#             */
-/*   Updated: 2018/12/12 18:44:56 by bclaudio         ###   ########.fr       */
+/*   Updated: 2018/12/13 11:56:59 by bboucher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	del_struct(t_shape **shape)
 	while (shape[i])
 	{
 		free(shape[i]);
-		shape[i] = NULL;
-		i++;
+		shape[i++] = NULL;
 	}
 	free(shape);
 }
